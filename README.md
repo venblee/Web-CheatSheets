@@ -22,10 +22,12 @@ TESTS
 - http://www.ng-newsletter.com/advent2013/#!/day/19
 - https://www.artandlogic.com/blog/2013/05/angularjs-best-practices-ive-been-doing-it-wrong-part-1-of-3/
 
-$ npm install -g karma-jasmine@2_0
-$ npm install -g karma-cli 
-$ npm install -g karma-chrome-launcher
-$ npm install -g karma-coverage
+```
+npm install karma-jasmine@2_0
+npm install karma-cli 
+npm install karma-chrome-launcher
+npm install karma-coverage
+```
 
 -> Install global, add Karma to PATH
 
