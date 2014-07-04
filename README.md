@@ -15,7 +15,8 @@ GRUNT/BOWER/YEOMAN
 Install global grunt bower and yeoman
 
 ```
-$ npm install -g yo grunt-cli bower
+npm install -g yo grunt-cli bower
+
 ```
 
 TESTS
