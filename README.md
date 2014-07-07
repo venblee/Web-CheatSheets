@@ -11,13 +11,15 @@ SETUP
 
 NPM
 ---
+
+Configure npm
+
 ```
 npm cache clear
 npm set strict-ssl false
 npm config set registry http://registry.npmjs.org/
-npm config set cache C:\Tmp\npm_cache --global
-npm config set tmp C:\Tmp --global
-
+npm config set cache C:\tmp\npm_cache --global
+npm config set tmp C:\tmp --global
 ```
 
 GRUNT/BOWER/YEOMAN
@@ -36,31 +38,65 @@ npm install yo grunt-cli bower --save-dev
 npm install generator-angular
 ```
 
-YEOMAN
-------
+Configure BOWER
 
-Install global grunt bower and yeoman
-
-```
-npm install -g yo grunt-cli bower 
-npm install yo grunt-cli bower  --save-dev
-
-
+.bowerrc (project/.bowerrc)
 
 ```
+{
+  "directory": "bower_components",
+  "strict-ssl": false
+}
+```
 
-TESTS
------
-- http://www.ng-newsletter.com/advent2013/#!/day/19
-- https://www.artandlogic.com/blog/2013/05/angularjs-best-practices-ive-been-doing-it-wrong-part-1-of-3/
+
+
+TEST (KARMA)
+------------
+Install
 
 ```
-npm install karma-jasmine@2_0 --save-dev
+npm install karma-jasmine --save-dev
 npm install karma-cli --save-dev
 npm install karma-chrome-launcher --save-dev
 npm install karma-coverage  --save-dev
-npm install karma-chrome-launcher --save-dev
 ```
+
+Configure
+
+karma.conf.js (project/test/karma.conf.js)
+
+```
+
+    frameworks: ['jasmine'],
+    
+    plugins: [
+      'karma-chrome-launcher',
+      'karma-jasmine'
+    ],
+
+
+    browsers: [
+      'Chrome'
+    ],
+
+```
+
+
+
+
+```
+- http://www.ng-newsletter.com/advent2013/#!/day/19
+- https://www.artandlogic.com/blog/2013/05/angularjs-best-practices-ive-been-doing-it-wrong-part-1-of-3/
+
 
 -> Install global, add Karma to PATH
 
+LIB/DEPENDENCIES SETUP (VIA BOWER)
+
+
+```
+bower install angular-ui-router --save-dev
+bower install angular-bootstrap --save-dev
+
+```
