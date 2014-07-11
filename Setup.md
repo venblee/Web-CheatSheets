@@ -1,13 +1,12 @@
-NG-CheatSheet
-=====================
+SETUP
+=====
+
 ref:
 - http://www.toptal.com/angular-js/your-first-angularjs-app-part-2-scaffolding-building-and-testing
 
 rem:
 - if issue use cygwin instead of cmd.exe
 
-SETUP
-=====
 
 NPM
 ---
