@@ -11,6 +11,10 @@ rem:
 NPM
 ---
 
+Basics
+-g : install global
+--save-dev (save as dev dependency)
+
 Configure npm
 
 ```
@@ -37,7 +41,8 @@ npm install yo grunt-cli bower --save-dev
 npm install generator-angular
 ```
 
-Configure BOWER
+BOWER
+-----
 
 .bowerrc (project/.bowerrc)
 
@@ -47,6 +52,14 @@ Configure BOWER
   "strict-ssl": false
 }
 ```
+
+manage dependencies
+
+```
+install <dependency> --save-dev : save as dev dependency
+install <dependency> --save : save as production dependency
+```
+
 
 
 
