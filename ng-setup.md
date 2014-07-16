@@ -41,8 +41,21 @@ npm install yo grunt-cli bower --save-dev
 npm install generator-angular
 ```
 
+GIT
+---
+
+Git is required by bower to install/update package
+
+If standard "git:" is blocked, following change it to an https access 
+```
+git config --global url."https://".insteadOf git://
+```
+
+
 BOWER
 -----
+
+
 
 .bowerrc (project/.bowerrc)
 
