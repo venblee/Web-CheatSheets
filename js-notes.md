@@ -2,10 +2,11 @@ Primitive (value) vs Object (refs)
 ==================================
 
 ref: 
-http://code.tutsplus.com/tutorials/javascript-objects--net-35979
-http://modernweb.com/2013/12/23/45-useful-javascript-tips-tricks-and-best-practices/
-http://developer.nokia.com/community/wiki/JavaScript_Performance_Best_Practices
-https://code.google.com/p/jslibs/wiki/JavascriptTips
+
+- http://code.tutsplus.com/tutorials/javascript-objects--net-35979
+- http://modernweb.com/2013/12/23/45-useful-javascript-tips-tricks-and-best-practices/
+- http://developer.nokia.com/community/wiki/JavaScript_Performance_Best_Practices
+- https://code.google.com/p/jslibs/wiki/JavascriptTips
 
 copy
 ----
