@@ -1,72 +1,9 @@
-Primitive (value) vs Object (refs)
-==================================
-
 ref: 
 
 - http://code.tutsplus.com/tutorials/javascript-objects--net-35979
 - http://modernweb.com/2013/12/23/45-useful-javascript-tips-tricks-and-best-practices/
 - http://developer.nokia.com/community/wiki/JavaScript_Performance_Best_Practices
 - https://code.google.com/p/jslibs/wiki/JavascriptTips
-
-copy
-----
-
-```
-var str = 'foo' 
-var copy = str; 
-str = null; 
- 
-str  // null
-copy // 'foo'
-```
-
-equality
---------
-
-
-```
-var val1 = 10;
-var val2 = 10;
-var obj3 = new Number('10'); // A complex numeric object because new was used.
-var obj4 = obj3;
- 
-val1 === val2 // true
- 
-val1 === obj3 // false (val != ref)
- 
-obj3 === obj4 // true (refs equals)
-
-obj4 = 10;
- 
-obj3 === obj4 // false (obj4 is val, obj3 is ref)
-```
-
-
-Points
-======
-
-false value
------------
-
-undefined, null, 0, false, NaN, '' (empty string) are all falsy.
-
-
-Equality
---------
-
-== : perform autocast (autoboxing), slower
-=== : type & value equality, faster
-
-```
-[10] === 10    // is false
-[10]  == 10    // is true
-'10' == 10     // is true
-'10' === 10    // is false
- []   == 0     // is true
- [] ===  0     // is false
- '' == false   // is true but true == "a" is false
- '' ===   false // is false 
-```
 
 Snippets
 ========
@@ -277,4 +214,63 @@ V.map(function(v){v.p = 1; return v;})
 var min = a < b ? a : b; 
 A[A.length] = v;
 for (var i = 0, len = V.length; i < len; i++) {V[i].p = 1;} return V;
+```
+
+Points to remember
+==================
+
+Primitive (value) vs Object (refs)
+----------------------------------
+
+copy
+
+
+```
+var str = 'foo' 
+var copy = str; 
+str = null; 
+ 
+str  // null
+copy // 'foo'
+```
+
+equality
+```
+var val1 = 10;
+var val2 = 10;
+var obj3 = new Number('10'); // A complex numeric object because new was used.
+var obj4 = obj3;
+ 
+val1 === val2 // true
+ 
+val1 === obj3 // false (val != ref)
+ 
+obj3 === obj4 // true (refs equals)
+
+obj4 = 10;
+ 
+obj3 === obj4 // false (obj4 is val, obj3 is ref)
+```
+
+false value
+-----------
+
+undefined, null, 0, false, NaN, '' (empty string) are all falsy.
+
+
+Equality
+--------
+
+== : perform autocast (autoboxing), slower
+=== : type & value equality, faster
+
+```
+[10] === 10    // is false
+[10]  == 10    // is true
+'10' == 10     // is true
+'10' === 10    // is false
+ []   == 0     // is true
+ [] ===  0     // is false
+ '' == false   // is true but true == "a" is false
+ '' ===   false // is false 
 ```
