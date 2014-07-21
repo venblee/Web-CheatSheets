@@ -4,6 +4,8 @@ ref:
 - http://modernweb.com/2013/12/23/45-useful-javascript-tips-tricks-and-best-practices/
 - http://developer.nokia.com/community/wiki/JavaScript_Performance_Best_Practices
 - https://code.google.com/p/jslibs/wiki/JavascriptTips
+- http://alistapart.com/article/getoutbindingsituations
+
 
 Snippets
 ========
@@ -195,8 +197,8 @@ typeof, constructor, instanceof
 - instanceof : is another JavaScript operator that check in all the prototypes chain the constructor it returns true if it’s found and false if not.
 
 
-Best pratices
-=============
+Best pratices (performance)
+===========================
 
 primitive operations over function calls
 ----------------------------------------
@@ -204,17 +206,49 @@ primitive operations over function calls
 - Usage vanilla js if possible, it's usually, but individual cases need to be test though
 - Tradeoff readability - performances
 
+Slow:
 ```
 var min = Math.min(a,b); 
 A.push(v);
 V.map(function(v){v.p = 1; return v;})
 ```
 
+Faster:
 ```
 var min = a < b ? a : b; 
 A[A.length] = v;
 for (var i = 0, len = V.length; i < len; i++) {V[i].p = 1;} return V;
 ```
+
+
+Use strings accumulator-style
+-----------------------------
+
+Using + operator a new string is created in memory and the concatenated value is assigned to it. Only after this the result is assigned to a variable.
+
+Slow:
+```
+a += 'x' + 'y';
+```
+
+Faster:
+```
+a += 'x';
+a += 'y';
+```
+
+Maximize object resolution speed and minimize scope chain
+
+Slow:
+```
+var url = location.href;
+```
+
+Faster:
+```
+var url = window.location.href;
+```
+
 
 Points to remember
 ==================
