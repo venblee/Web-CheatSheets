@@ -107,21 +107,12 @@ karma.conf.js (project/test/karma.conf.js)
 
 ```
 
-
-
-
-```
-- http://www.ng-newsletter.com/advent2013/#!/day/19
-- https://www.artandlogic.com/blog/2013/05/angularjs-best-practices-ive-been-doing-it-wrong-part-1-of-3/
-
-
 -> Install global, add Karma to PATH
 
 LIB/DEPENDENCIES SETUP (VIA BOWER)
-
+----------------------------------
 
 ```
-bower install angular-ui-router --save-dev
-bower install angular-bootstrap --save-dev
-
+bower install angular-ui-router --save
+bower install angular-bootstrap --save
 ```
