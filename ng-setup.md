@@ -73,8 +73,21 @@ install <dependency> --save-dev : save as dev dependency
 install <dependency> --save : save as production dependency
 ```
 
+SASS
+----
+
+You need to install Ruby first, so download and install it from here: 
+http://dl.bintray.com/oneclick/rubyinstaller/ruby-1.9.3-p545-i386-mingw32.7z?direct
 
 
+Then in order to make compass work properly:
+```
+gem update --system
+gem sources –r https://rubygems.org/
+gem sources –c
+gem sources –a http://rubygems.org
+gem install compass
+```
 
 TEST (KARMA)
 ------------
