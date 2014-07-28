@@ -28,6 +28,11 @@ npm install
 bower install
 ```
 
+- run the project
+```
+grunt serve --force
+```
+
 SETUP
 =====
 
