@@ -1,3 +1,33 @@
+QUICK SETUP (FROM AN EXISTING PROJECT)
+======================================
+
+- Install node (including npm) + npm to PATH
+- Install git + git.exe to PATH
+
+- npm
+```
+npm cache clear
+npm set strict-ssl false
+npm config set registry http://registry.npmjs.org/
+npm config set cache C:\tmp\npm_cache --global
+npm config set tmp C:\tmp --global
+```
+
+- git
+```
+git config --global url."https://".insteadOf git://
+```
+
+- retrieve npm packages 
+```
+npm install
+```
+
+- retrieve bower dependencies
+```
+bower install
+```
+
 SETUP
 =====
 
@@ -8,15 +38,28 @@ rem:
 - if issue use cygwin instead of cmd.exe
 
 
+NODE
+----
+
+Installation
+- http://nodejs.org/ 
+- Add exe to PATH
+
+
 NPM
 ---
 
-Basics
+***Install***
+- Included within node
+
+
+***Note***
+```
 -g : install global
 --save-dev (save as dev dependency)
+```
 
-Configure npm
-
+***Config***
 ```
 npm cache clear
 npm set strict-ssl false
@@ -25,37 +68,45 @@ npm config set cache C:\tmp\npm_cache --global
 npm config set tmp C:\tmp --global
 ```
 
+GIT
+---
+
+***Install***
+- https://windows.github.com/
+- Add exe to PATH
+
+***Config***
+If standard "git://" is blocked, following change it to an https access 
+```
+git config --global url."https://".insteadOf git://
+```
+
 GRUNT/BOWER/YEOMAN
 ------------------
 
-Install grunt bower and yeoman global (recommended)
+***Install global***  
+
+Will install node package in the common shared folder (recommended)
 
 ```
 npm install -g yo grunt-cli bower 
 npm install -g generator-angular
 ```
 
-Install grunt bower and yeoman local (if global doesn't work out)
+***Install local***
+
+Will put package specifically in the porject location
+
 ```
 npm install yo grunt-cli bower --save-dev
 npm install generator-angular
-```
-
-GIT
----
-
-Git is required by bower to install/update package
-
-If standard "git:" is blocked, following change it to an https access 
-```
-git config --global url."https://".insteadOf git://
 ```
 
 
 BOWER
 -----
 
-
+***Config***
 
 .bowerrc (project/.bowerrc)
 
@@ -65,6 +116,8 @@ BOWER
   "strict-ssl": false
 }
 ```
+
+***Usage***
 
 manage dependencies
 
@@ -91,7 +144,7 @@ gem install compass
 
 TEST (KARMA)
 ------------
-Install
+***Install***
 
 ```
 npm install karma-jasmine --save-dev
