@@ -1,8 +1,7 @@
-Web.Config
-==========
-
 Enable CORS on IIS
-------------------
+==================
+
+***Web.Config***
 
 - remove all reference to WebDAV
 - add specific headers
@@ -23,4 +22,95 @@ Enable CORS on IIS
     </httpProtocol>
   </system.webServer>
 ```
+
+
+Camel Case Support For JSON
+===========================
+
+
+WebApi
+------
+
+***Global.asax***
+
+```
+    protected void Application_Start()
+    {
+      ...
+      
+      var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
+      json.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+      
+      ...
+    }
+
+```
+
+OData
+-----
+
+***WebApiConfig.cs***
+
+```
+    public static void Register(HttpConfiguration config)
+    {
+      var builder = new ODataConventionModelBuilder();
+      builder.EnableLowerCamelCase();
+      
+      config.MapODataServiceRoute(
+          routeName: "ODataRoute",
+          routePrefix: null,
+          model: builder.GetEdmModel());
+    }
+
+```
+
+SignalR
+-------
+
+***FilteredCamelCasePropertyNamesContractResolver.cs***
+
+```
+public class FilteredCamelCasePropertyNamesContractResolver : DefaultContractResolver
+  {
+    public FilteredCamelCasePropertyNamesContractResolver()
+    {
+      AssembliesToInclude = new HashSet<Assembly>();
+      TypesToInclude = new HashSet<Type>();
+    }
+    // Identifies assemblies to include in camel-casing
+    public HashSet<Assembly> AssembliesToInclude { get; set; }
+    // Identifies types to include in camel-casing
+    public HashSet<Type> TypesToInclude { get; set; }
+    protected override JsonProperty CreateProperty(MemberInfo member, MemberSerialization memberSerialization)
+    {
+      var jsonProperty = base.CreateProperty(member, memberSerialization);
+      Type declaringType = member.DeclaringType;
+      if (
+          TypesToInclude.Contains(declaringType)
+          || AssembliesToInclude.Contains(declaringType.Assembly))
+      {
+        jsonProperty.PropertyName = jsonProperty.PropertyName.ToCamelCase();
+      }
+      return jsonProperty;
+    }
+  }   
+```
+
+***Global.asax***
+
+```
+    protected void Application_Start()
+    {
+      ...
+      
+      var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
+      GlobalHost.DependencyResolver.Register(typeof(JsonSerializer),() => JsonSerializerFactory.Value);
+      ...
+    }
+
+```
+      
+
+
 
