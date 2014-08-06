@@ -1,4 +1,10 @@
 
+Styling
+=======
+
+**refs**
+- https://github.com/johnpapa/angularjs-styleguide
+
 Best practices
 ==============
 
