@@ -10,6 +10,23 @@ ref:
 Snippets
 ========
 
+
+IFrame fiddling
+---------------
+
+
+
+```
+<iframe id="FileFrame" src="about:blank"></iframe>
+<script type="text/javascript">
+var doc = document.getElementById('FileFrame').contentWindow.document;
+doc.open();
+doc.write('<html><head><title></title></head><body>Hello world.</body></html>');
+doc.close();
+</script>
+
+```
+
 Filter / intercept a function call
 ----------------------------------
 ```
