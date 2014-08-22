@@ -223,14 +223,14 @@ primitive operations over function calls
 - Usage vanilla js if possible, it's usually, but individual cases need to be test though
 - Tradeoff readability - performances
 
-Slow:
+**Slow**
 ```
 var min = Math.min(a,b); 
 A.push(v);
 V.map(function(v){v.p = 1; return v;})
 ```
 
-Faster:
+**Faster**
 ```
 var min = a < b ? a : b; 
 A[A.length] = v;
@@ -243,29 +243,44 @@ Use strings accumulator-style
 
 Using + operator a new string is created in memory and the concatenated value is assigned to it. Only after this the result is assigned to a variable.
 
-Slow:
+**Slow**
 ```
 a += 'x' + 'y';
 ```
 
-Faster:
+**Faster**
 ```
 a += 'x';
 a += 'y';
 ```
 
 Maximize object resolution speed and minimize scope chain
+---------------------------------------------------------
 
-Slow:
+**Slow**
 ```
 var url = location.href;
 ```
 
-Faster:
+**Faster**
 ```
 var url = window.location.href;
 ```
 
+Equality checks
+---------------
+
+use === over == if autocast isn't required
+
+**Slow**
+```
+== // perform autocast (autoboxing), slower
+```
+
+**Faster**
+```
+=== //: type & value equality, faster
+```
 
 Points to remember
 ==================
@@ -273,9 +288,7 @@ Points to remember
 Primitive (value) vs Object (refs)
 ----------------------------------
 
-copy
-
-
+**copy**
 ```
 var str = 'foo' 
 var copy = str; 
@@ -285,7 +298,7 @@ str  // null
 copy // 'foo'
 ```
 
-equality
+**equality**
 ```
 var val1 = 10;
 var val2 = 10;
@@ -306,14 +319,20 @@ obj3 === obj4 // false (obj4 is val, obj3 is ref)
 false value
 -----------
 
-undefined, null, 0, false, NaN, '' (empty string) are all falsy.
+- undefined
+- null
+- 0
+- false
+- NaN
+- '' (empty string) 
+- [] (empty array) 
 
 
 Equality
 --------
 
-== : perform autocast (autoboxing), slower
-=== : type & value equality, faster
+- ***==*** perform autocast (autoboxing), slower
+- ***===*** type & value equality, faster
 
 ```
 [10] === 10    // is false
