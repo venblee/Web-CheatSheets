@@ -22,7 +22,10 @@ git config --global url."https://".insteadOf git://
 ```
 npm install
 ```
-
+install globaly yoman / grunt / bower  
+````
+npm install -g yo grunt-cli bower 
+````
 - retrieve bower dependencies
 ```
 bower install
