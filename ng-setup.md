@@ -1,9 +1,10 @@
 QUICK SETUP (FROM AN EXISTING PROJECT)
 ======================================
-
+- (PATH - > System Properties -> Enviromental Variables -> User Variables ) 
 - Install node (including npm) + npm to PATH
 - Install git + git.exe to PATH
 
+-- Running the Following Setup  in CMD 
 - npm
 ```
 npm cache clear
@@ -12,12 +13,13 @@ npm config set registry http://registry.npmjs.org/
 npm config set cache C:\tmp\npm_cache --global
 npm config set tmp C:\tmp --global
 ```
-
+- Restart CMD 
 - git
 ```
 git config --global url."https://".insteadOf git://
 ```
 
+-- Running the Following Setup from the Root of the Project in CMD 
 - retrieve npm packages 
 ```
 npm install
